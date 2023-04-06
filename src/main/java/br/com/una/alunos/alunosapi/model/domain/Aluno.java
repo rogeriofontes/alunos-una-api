@@ -1,23 +1,25 @@
 package br.com.una.alunos.alunosapi.model.domain;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
-//@Setter
-//@Getter
+@Entity
+@Table(name = "tb_aluno")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class Aluno implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private Integer matricula;
 
+    @Column(name = "nome_sobrenome")
+    private String nomeSobrenome;
+
+    private Integer matricula;
 
 }
